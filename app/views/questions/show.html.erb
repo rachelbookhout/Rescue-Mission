@@ -18,3 +18,10 @@
   <%= f.submit %>
   </p>
   <%end%>
+
+<h2> Solutions to the Problem </h2>
+<ul>
+<% @answers.each do |answer| %>
+<li><%= answer.body %></li>
+<%end%>
+</ul>

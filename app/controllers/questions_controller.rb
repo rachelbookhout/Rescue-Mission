@@ -6,6 +6,8 @@ class QuestionsController < ApplicationController
   def show
   @question = Question.find(params[:id])
   @answer = Answer.new
+  id = params[:id].to_i
+  @answers = Answer.all.where(question_id:"#{id}")
   end
 
   def edit
@@ -18,8 +20,6 @@ class QuestionsController < ApplicationController
   @question = Question.new(question_params)
   @question.save
     if @question.save == false
-
-
       render 'new'
     else
       redirect_to @question
