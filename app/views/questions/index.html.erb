@@ -1,0 +1,8 @@
+<ol>
+<% @questions.each do |question| %>
+  <li><h3><%= question.title %></h3></li>
+      <ul>
+      <li><p><%= question.description %></p></li>
+      </ul>
+  <% end %>
+</ol>
