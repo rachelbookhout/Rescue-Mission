@@ -1,6 +1,6 @@
 <ol>
 <% @questions.each do |question| %>
-  <li><h3><%= question.title %></h3></li>
+  <li><a href="/questions/<%=question.id%>"><h3><%= question.title %></h3></a></li>
       <ul>
       <li><p><%= question.description %></p></li>
       </ul>

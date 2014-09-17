@@ -7,3 +7,14 @@
   <strong>Description:</strong>
   <%= @question.description %>
 </p>
+
+<h2> Add an Answer </h2>
+<%= form_for [@question, @answer] do |f| %>
+  <p>
+  <%= f.label :Answer%>
+  <%= f.text_area :body%>
+  </p>
+  <p>
+  <%= f.submit %>
+  </p>
+  <%end%>
