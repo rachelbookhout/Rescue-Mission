@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+has_many :questions
+has_many :answers
 
   def self.create_with_omniauth(auth)
     create! do |user|

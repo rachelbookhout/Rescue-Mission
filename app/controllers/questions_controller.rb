@@ -31,6 +31,8 @@ class QuestionsController < ApplicationController
 
   def create
   @question = Question.new(question_params)
+  #binding.pry
+  @question.user_id = current_user.id
   @question.save
     if @question.save == false
       render 'new'
