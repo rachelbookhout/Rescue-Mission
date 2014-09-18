@@ -38,4 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'pry-rails'
+gem 'omniauth'
+gem 'omniauth-github'
+
+group :development, :test do
+  gem 'dotenv-rails'
+  gem 'pry-rails'
+end

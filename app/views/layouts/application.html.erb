@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RescueMission</title>
+  <title>Question Overflow</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
 
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/questions/new">Add Question</a></li>
+              <% if current_user %>
+                <li><a href="./">Signed in as <%= current_user.name %>!</a></li>
+                <li><%= link_to "Sign out", signout_path %></li>
+              <% else %>
+                <li><%= link_to "Sign in with Github", "/auth/github" %></li>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
 <%= yield %>
 
 </body>
