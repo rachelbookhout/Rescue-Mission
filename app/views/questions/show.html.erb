@@ -10,6 +10,14 @@
 
 <h2> Add an Answer </h2>
 <%= form_for [@question, @answer] do |f| %>
+<% if @answer.errors.any? %>
+<h2>Errors </h2>
+<ul>
+<% @answer.errors.full_messages.each do |message|%>
+<li><%= message %> </li>
+<%end%>
+</ul>
+<%end%>
   <p>
   <%= f.label :Answer%>
   <%= f.text_area :body%>
@@ -18,6 +26,10 @@
   <%= f.submit %>
   </p>
   <%end%>
+
+
+
+
 
 <h2> Solutions to the Problem </h2>
 <ul>

@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   @question = Question.find(params[:id])
   @answer = Answer.new
   id = params[:id].to_i
-  @answers = Answer.all.where(question_id:"#{id}")
+  @answers = Answer.all.order(created_at: :desc).where(question_id:"#{id}")
   end
 
   def edit

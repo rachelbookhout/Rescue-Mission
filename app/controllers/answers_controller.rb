@@ -4,11 +4,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.question_id = @question.id
     @answer.save
-     if @question.save == false
-      render 'show'
-    else
-      redirect_to @question
-    end
+    redirect_to @question
   end
 
  private
