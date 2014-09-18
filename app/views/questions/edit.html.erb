@@ -1,0 +1,27 @@
+<h1> What would you like to change? </h1>
+
+<%= form_for :question, url:question_path(@question), method: :patch do |f| %>
+<% if @question.errors.any? %>
+<h2>Errors </h2>
+<ul>
+<% @question.errors.full_messages.each do |message|%>
+<li><%= message %> </li>
+<%end%>
+</ul>
+<%end%>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', questions_path %>
