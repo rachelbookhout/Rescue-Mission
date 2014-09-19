@@ -2,12 +2,18 @@
   <strong>Question:</strong>
   <%= @question.title %>
 </p>
+
+<%if @question.user.nil? == false%>
 <h5>Submitted by <%= @question.user.name %> </h5>
+<%end%>
 <p>
   <strong>Description:</strong>
   <%= @question.description %>
 </p>
+
+<% if @question.user == current_user %>
 <h5><%= link_to 'Edit', edit_question_path(@question)%>  <%= link_to 'Delete', question_path(@question), method: :delete, data: {confirm: 'Are you sure?'}%></h5>
+<% end %>
 
 <h2> Add an Answer </h2>
 <%= form_for [@question, @answer] do |f| %>

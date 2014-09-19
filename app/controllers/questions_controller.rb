@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-  @question = Question.find(params[:id])
+  @question = Question.where(user: current_user).find(params[:id])
   end
 
   def update
@@ -24,15 +24,18 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-  @question = Question.find(params[:id])
+  @question = Question.where(user: current_user).find(params[:id])
   @question.destroy
   redirect_to questions_path
   end
 
   def create
   @question = Question.new(question_params)
-  #binding.pry
-  @question.user_id = current_user.id
+  if current_user.nil?
+   @question_user_id = nil
+  else
+    @question.user_id = current_user.id
+  end
   @question.save
     if @question.save == false
       render 'new'
